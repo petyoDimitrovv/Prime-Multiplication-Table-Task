@@ -2,29 +2,53 @@ package MultiplicationTable;
 
 import java.util.List;
 
+ /**
+ * Prints Multiplication table for the given list of primes.
+ */
+
+
 public class MultiplicationTableImpl implements MultiplicationTable {
 
     private List<Integer> primeList;
 
-    public MultiplicationTableImpl(List<Integer> primeList) {
-        this.primeList = primeList;
+    public MultiplicationTableImpl() {
     }
 
-    @Override
-    public void print() {
+    public MultiplicationTableImpl(List<Integer> primeList) {
+        this.primeList = primeList;
+
+
+    }
+    /*
+    Method that returns multiplication table as a String matrix and prints result ot the STDOUT.
+     */
+    public void printTable() {
 
         String[][] matrix = createMultiplicationMatrix(primeList);
 
-        for (int i = 0; i < matrix.length; i++) {
+        for (int row = 0; row < matrix.length; row++) {
 
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j] + "\t");
+            for (int col = 0; col < matrix[row].length; col++) {
+                System.out.print(matrix[row][col] + "\t");
             }
             System.out.println();
         }
 
     }
-    private  String[][] createMultiplicationMatrix(List<Integer> primeNumbers) {
+
+    /*
+    Create multiplication matrix with the product of 'n' prime number.
+    Used String to represent the first cell like ' '(empty space)
+    The first loop create initial table of first row and column.
+    Example:
+    " "  2  3  5  7
+     2
+     3
+     5
+     7
+
+     */
+    public String[][] createMultiplicationMatrix(List<Integer> primeNumbers) {
 
         String[][] multiplicationTable = new String[primeNumbers.size() + 1][primeNumbers.size() + 1];
 
@@ -41,10 +65,9 @@ public class MultiplicationTableImpl implements MultiplicationTable {
             }
         }
 
-
         return multiplicationTable;
 
     }
 
-    }
+}
 

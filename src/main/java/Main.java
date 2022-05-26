@@ -1,8 +1,7 @@
 import MultiplicationTable.MultiplicationTable;
 import MultiplicationTable.MultiplicationTableImpl;
-import Prime.PrimeImpl;
+import Numbers.PrimeNumbersImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,7 +18,7 @@ public class Main {
 
             List<Integer> primesList = generatePrimes(n);
             MultiplicationTable mt = new MultiplicationTableImpl(primesList);
-            mt.print();
+            mt.printTable();
 
         } catch (IllegalArgumentException ex) {
             System.out.println(ex.getMessage());
@@ -32,7 +31,7 @@ public class Main {
 
     private static List<Integer> generatePrimes(int n) {
 
-        return new PrimeImpl().primeList(n);
+        return new PrimeNumbersImpl().generate(n);
 
     }
 

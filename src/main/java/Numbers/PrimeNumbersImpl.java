@@ -1,11 +1,18 @@
-package Prime;
+package Numbers;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrimeImpl implements Prime{
+public class PrimeNumbersImpl implements NumberGenerator {
+
+    /*
+    Method that generate the primeNumber.
+    Add number 2 at the beginning because 1 is not prime,
+    and it start from index 3 for optimization.
+    The index increment every time with 2 to avoid even numbers.
+     */
     @Override
-    public List<Integer> primeList(int numb) {
+    public List<Integer> generate(int numb) {
         List<Integer> primes = new ArrayList<>();
 
         if (numb <= 0) {
@@ -17,7 +24,6 @@ public class PrimeImpl implements Prime{
         while (primes.size() < numb) {
             if (isPrime(i)) {
                 primes.add(i);
-
             }
             i += 2;
         }
@@ -25,8 +31,11 @@ public class PrimeImpl implements Prime{
         return primes;
     }
 
+    /*
+    Simple method that validate given number as prime.
+     */
 
-    boolean isPrime(int n) {
+   public boolean isPrime(int n) {
         if(n < 2) return false;
 
         for (int i = 2; i <= Math.sqrt(n); i++) {

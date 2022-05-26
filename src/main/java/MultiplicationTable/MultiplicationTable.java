@@ -1,5 +1,5 @@
 package MultiplicationTable;
 
 public interface MultiplicationTable {
-    void print();
+    void printTable();
 }
