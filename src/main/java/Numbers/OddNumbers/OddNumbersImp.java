@@ -1,8 +1,10 @@
-package Numbers;
+package Numbers.OddNumbers;
+
+import Numbers.NumberGenerator;
 
 import java.util.List;
 
-public class OddNumbersImp implements NumberGenerator{
+public class OddNumbersImp extends OddNumber {
     @Override
     public List<Integer> generate(int n) {
         TODO: //Write logic for odd number generator

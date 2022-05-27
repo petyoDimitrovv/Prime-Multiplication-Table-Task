@@ -1,18 +1,17 @@
 import MultiplicationTable.MultiplicationTable;
 import MultiplicationTable.MultiplicationTableImpl;
-import Numbers.PrimeNumbersImpl;
+import Numbers.PrimeNumbers.PrimeNumbersImpl;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, this is prime multiplication calculator!");
+        System.out.println("Hello, this is prime multiplication table creator!");
         System.out.println("Please insert your input below!");
 
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
-
 
         try {
 
@@ -27,7 +26,6 @@ public class Main {
         }
 
     }
-
 
     private static List<Integer> generatePrimes(int n) {
 

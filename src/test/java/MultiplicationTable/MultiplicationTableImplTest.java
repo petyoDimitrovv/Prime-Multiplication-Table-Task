@@ -1,6 +1,6 @@
 package MultiplicationTable;
 
-import Numbers.PrimeNumbersImpl;
+import Numbers.PrimeNumbers.PrimeNumbersImpl;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class MultiplicationTableImplTest {
 
     @Test
-    public void test_multiplicationTableCreateTheRightNumbersOnGivenRow() {
+    public void Test_multiplicationTableCreateTheRightNumbersOnGivenRow() {
         int n = 5;
         List<Integer> prime = new PrimeNumbersImpl().generate(n);
 

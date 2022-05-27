@@ -1,5 +1,6 @@
 package Numbers;
 
+import Numbers.PrimeNumbers.PrimeNumbersImpl;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,11 +9,11 @@ public class primeNumbersImplTest {
 
     @Test
     public void Test_primeListShouldThrowExceptionOnNotPositiveInteger() throws Exception {
-        try{
+        try {
             new PrimeNumbersImpl().generate(0);
             fail("Fail");
-        }catch (IllegalArgumentException ex){
-            assertEquals("Number should be positive integer",ex.getMessage());
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Number should be positive integer", ex.getMessage());
         }
     }
 
