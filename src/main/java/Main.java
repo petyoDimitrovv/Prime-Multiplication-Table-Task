@@ -15,7 +15,7 @@ public class Main {
 
         System.out.println("Hello, this is multiplication table creator!");
         System.out.println("Please choose between 1, 2 and 3 for odd, even or prime type of " +
-                            "multiplication table, then insert your desired size below:");
+                           "multiplication table, then insert your desired size below:");
 
         int menuChoice = Integer.parseInt(scanner.nextLine());
 
@@ -29,7 +29,7 @@ public class Main {
                         printTable(oddsList);
                         break;
                     case 2:
-                        List<Integer> evenList = generateEven(size);
+                        List<Integer> evenList = generateEvens(size);
                         printTable(evenList);
                         break;
                     case 3:
@@ -65,11 +65,11 @@ public class Main {
 
     }
 
-    private static List<Integer> generateEven(int prime) {
+    private static List<Integer> generateEvens(int even) {
 
         NumberGenerator evenGenerator = new EvenNumberImpl();
 
-        return evenGenerator.generate(prime);
+        return evenGenerator.generate(even);
     }
 
     private static void printTable(List<Integer> numbList) {
