@@ -2,16 +2,25 @@ package Numbers.OddNumbers;
 
 import Numbers.NumberGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OddNumbersImp extends OddNumber {
     @Override
-    public List<Integer> generate(int n) {
-        TODO: //Write logic for odd number generator
+    public List<Integer> generate(int numb) {
 
-        //Can extend the logic with even number class for example, or other classes,
-        //which is kind of polymorphism
+        List<Integer> odds = new ArrayList<>();
 
-        return null;
+        if (numb <= 0) {
+            throw new IllegalArgumentException("Number should be positive odd number");
+        }
+        int i = 1;
+
+        while (odds.size() < numb) {
+            odds.add(i);
+            i += 2;
+        }
+        return odds;
+
     }
 }

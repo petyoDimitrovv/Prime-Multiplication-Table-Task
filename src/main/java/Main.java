@@ -1,5 +1,8 @@
 import MultiplicationTable.MultiplicationTable;
 import MultiplicationTable.MultiplicationTableImpl;
+import Numbers.EvenNumbers.EvenNumberImpl;
+import Numbers.NumberGenerator;
+import Numbers.OddNumbers.OddNumbersImp;
 import Numbers.PrimeNumbers.PrimeNumbersImpl;
 
 import java.util.List;
@@ -7,32 +10,74 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, this is prime multiplication table creator!");
-        System.out.println("Please insert your input below!");
 
         Scanner scanner = new Scanner(System.in);
-        int n = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Hello, this is multiplication table creator!");
+        System.out.println("Please choose between 1, 2 and 3 for odd, even or prime type of " +
+                            "multiplication table, then insert your desired size below:");
+
+        int menuChoice = Integer.parseInt(scanner.nextLine());
 
         try {
 
-            List<Integer> primesList = generatePrimes(n);
-            MultiplicationTable mt = new MultiplicationTableImpl(primesList);
-            mt.printTable();
+                int size = Integer.parseInt(scanner.nextLine());
+
+                switch (menuChoice) {
+                    case 1:
+                        List<Integer> oddsList = generateOdds(size);
+                        printTable(oddsList);
+                        break;
+                    case 2:
+                        List<Integer> evenList = generateEven(size);
+                        printTable(evenList);
+                        break;
+                    case 3:
+                        List<Integer> primesList = generatePrimes(size);
+                        printTable(primesList);
+                        break;
+                    default:
+                        System.out.println("Invalid menu option");
+
+                }
 
         } catch (IllegalArgumentException ex) {
             System.out.println(ex.getMessage());
         } finally {
-            System.out.printf("That was a table of first %d prime digits!", n);
+            System.out.println("That was your multiplication table!");
         }
+
 
     }
 
-    private static List<Integer> generatePrimes(int n) {
+    private static List<Integer> generateOdds(int odd) {
 
-        return new PrimeNumbersImpl().generate(n);
+        NumberGenerator oddGenerator = new OddNumbersImp();
+
+        return oddGenerator.generate(odd);
+    }
+
+    private static List<Integer> generatePrimes(int prime) {
+
+        NumberGenerator primeGenerator = new PrimeNumbersImpl();
+
+        return primeGenerator.generate(prime);
+
+    }
+
+    private static List<Integer> generateEven(int prime) {
+
+        NumberGenerator evenGenerator = new EvenNumberImpl();
+
+        return evenGenerator.generate(prime);
+    }
+
+    private static void printTable(List<Integer> numbList) {
+
+        MultiplicationTable mt = new MultiplicationTableImpl(numbList);
+
+        mt.printTable();
 
     }
 
 }
-
-
